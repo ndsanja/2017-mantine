@@ -1,13 +1,62 @@
-import { Button } from '@mantine/core';
-import { ColorSchemeToggle } from '../../../components/ColorSchemeToggle/ColorSchemeToggle';
-import { Welcome } from '../../../components/Welcome/Welcome';
+import {
+  Center,
+  Container,
+  Pagination,
+  Space,
+  Stack,
+  Text,
+  Title,
+  useMantineTheme,
+} from '@mantine/core';
+import FeaturedService from '../components/featured/FeaturedService';
+import HeaderComp from '../components/header/HeaderComp';
+import Hero from '../components/hero/Hero';
+import HeroGrid from '../components/heroGrid/HeroGrid';
+import MenuComp from '../components/menu/MenuComp';
+import ProductList from '../components/productList/ProductList';
 
 const HomeView = () => {
+  const theme = useMantineTheme();
   return (
     <>
-      <Welcome />
-      <ColorSchemeToggle />
-      <Button>Primay Color</Button>
+      <HeaderComp />
+      <Container size="md">
+        <Space h={theme.spacing.xl * 3} />
+        <Stack align="center" justify="center" spacing={0}>
+          <Title order={1}>20.17</Title>
+          <Text>Duapuluh Tujuhbelas</Text>
+        </Stack>
+        <Space h={theme.spacing.xl * 3} />
+        <MenuComp />
+        <Space h={theme.spacing.xl * 3} />
+        <Stack align="center" justify="center" spacing={0}>
+          <Title
+            order={1}
+            sx={{ fontSize: theme.fontSizes.xl * 4, fontWeight: 400 }}
+          >
+            Official Website
+          </Title>
+          <Title
+            order={1}
+            sx={{ fontSize: theme.fontSizes.xl * 4, fontWeight: 400 }}
+          >
+            Duapuluh TujuhBelas
+          </Title>
+        </Stack>
+        <Space h={theme.spacing.xl * 3} />
+        <Hero />
+        <Space h={theme.spacing.xl * 3} />
+        <FeaturedService />
+        <Space h={theme.spacing.xl * 3} />
+        <HeroGrid />
+        <Space h={theme.spacing.xl * 3} />
+        <Title order={1} sx={{ fontWeight: 400, textAlign: 'center' }}>
+          Product List
+        </Title>
+        <Space h={theme.spacing.xl * 2} />
+        <ProductList />
+        <Space h={theme.spacing.xl * 3} />
+      </Container>
     </>
   );
 };
