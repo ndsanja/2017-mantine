@@ -16,6 +16,8 @@ specifiers:
   '@types/react': 18.0.17
   '@types/react-dom': 18.0.6
   cookies-next: ^2.1.1
+  embla-carousel: ^7.0.0
+  embla-carousel-autoplay: ^7.0.0
   embla-carousel-react: ^7.0.0
   eslint: 8.21.0
   eslint-config-next: 12.2.4
@@ -36,6 +38,8 @@ dependencies:
   '@mantine/notifications': 5.1.1_2suowmaou4zrczdwao7o7f3jte
   '@tabler/icons': 1.79.0_biqbaboplfbrettd7655fr4n2y
   cookies-next: 2.1.1
+  embla-carousel: 7.0.0
+  embla-carousel-autoplay: 7.0.0_embla-carousel@7.0.0
   embla-carousel-react: 7.0.0_react@18.2.0
   next: 12.2.4_twoewwu6sg7cdf3ao6njtbftne
   react: 18.2.0
@@ -1368,6 +1372,14 @@ packages:
 
   /electron-to-chromium/1.4.212:
     resolution: {integrity: sha512-LjQUg1SpLj2GfyaPDVBUHdhmlDU1vDB4f0mJWSGkISoXQrn5/lH3ECPCuo2Bkvf6Y30wO+b69te+rZK/llZmjg==}
+
+  /embla-carousel-autoplay/7.0.0_embla-carousel@7.0.0:
+    resolution: {integrity: sha512-9IzP+VOo+g4a6lBraV7Pz+qbKVjdcu826C4B5aZs5r5S5t8N0ydSMuXa4S3P8WK3Yra6DQRoDacd7qfna1R4hQ==}
+    peerDependencies:
+      embla-carousel: 7.0.0
+    dependencies:
+      embla-carousel: 7.0.0
+    dev: false
 
   /embla-carousel-react/7.0.0_react@18.2.0:
     resolution: {integrity: sha512-y17TYtqvvziWbDwwfX5dh8n4qU1luytz4+6WWMBnR4pJfLfkKBGsqYNZ4WhmAgUcYL1Uliti8Cjg+NJd46MPxw==}
