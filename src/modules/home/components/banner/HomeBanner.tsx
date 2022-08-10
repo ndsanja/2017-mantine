@@ -25,8 +25,8 @@ const HomeBanner = () => {
         py={theme.spacing.xl * 2}
         mx="sm"
       >
-        <Title order={2}>Pelayanan Terbaik dan Produk Berkualitas</Title>
-        <Text>
+        <Title order={3}>Pelayanan Terbaik dan Produk Berkualitas</Title>
+        <Text sx={{ fontSize: theme.fontSizes.xs }}>
           UB Merchandise & Creative berkomitmen memberikan layanan terbaik
           sesuai kebutuhan Anda. Jangan ragu, kami siap membantu!
         </Text>

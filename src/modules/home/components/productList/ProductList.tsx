@@ -1,6 +1,7 @@
 import {
   Anchor,
   AspectRatio,
+  Box,
   Card,
   Center,
   Group,
@@ -60,9 +61,13 @@ const ProductList = () => {
     <>
       <Group align="center" spacing="sm" mb="xl">
         {menu.map((item) => (
-          <Anchor
+          <Text
             key={item.title}
             sx={{
+              fontSize: theme.fontSizes.xs,
+              fontWeight: 600,
+              textDecoration:
+                item.title === 'New Product' ? 'underline' : 'none',
               color:
                 theme.colorScheme === 'dark'
                   ? theme.colors.dark[0]
@@ -70,7 +75,7 @@ const ProductList = () => {
             }}
           >
             {item.title}
-          </Anchor>
+          </Text>
         ))}
       </Group>
       <SimpleGrid
@@ -93,13 +98,22 @@ const ProductList = () => {
               />
             </AspectRatio>
             <Card.Section mt="md" px="sm">
-              <Title order={5} sx={{ fontWeight: 400 }}>
+              <Title
+                order={6}
+                sx={{ fontWeight: 600, fontSize: theme.fontSizes.xs }}
+              >
                 {prod.title}
               </Title>
-              <Text sx={{ fontSize: theme.fontSizes.xs }}>Selengkapnya</Text>
+              {/* <Text sx={{ fontSize: theme.fontSizes.xs }}>Selengkapnya</Text> */}
             </Card.Section>
             <Card.Section mt="sm" px="sm">
-              <Group position="apart" sx={{ fontSize: theme.fontSizes.xs }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  fontSize: theme.fontSizes.xs,
+                }}
+              >
                 <Text>Rp 80000</Text>
                 <Text
                   sx={{
@@ -109,7 +123,7 @@ const ProductList = () => {
                 >
                   Rp 100000
                 </Text>
-              </Group>
+              </Box>
             </Card.Section>
             <Card.Section mt="sm" px="sm">
               <Group sx={{ fontSize: theme.fontSizes.sm }}>

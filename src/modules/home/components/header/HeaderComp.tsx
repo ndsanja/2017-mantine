@@ -86,7 +86,9 @@ const HeaderComp = () => {
       </Group>
       <Group position="center" spacing="sm">
         <ColorSchemeToggle />
-        <Button>Order</Button>
+        <Button sx={{ fontWeight: 600, fontSize: theme.fontSizes.xs }}>
+          Form Order
+        </Button>
       </Group>
     </Header>
   );

@@ -13,23 +13,24 @@ const FeaturedService = () => {
   const data = [
     {
       icon: 'icon',
-      title: 'Service 1',
+      title: 'Pelayanan Terbaik',
     },
     {
       icon: 'icon',
-      title: 'Service 2',
+      title: 'Produk Berkualitas',
     },
     {
       icon: 'icon',
-      title: 'Service 3',
+      title: 'Profesional',
     },
     {
       icon: 'icon',
-      title: 'Service 4',
+      title: 'Harga Terjangkau',
     },
   ];
   return (
     <SimpleGrid
+      p="lg"
       breakpoints={[
         { maxWidth: 'sm', cols: 2 },
         { minWidth: 'sm', cols: 4 },
@@ -45,8 +46,8 @@ const FeaturedService = () => {
               color: theme.white,
             }}
           >
-            <IconCoin size={50} />
-            <Text>Service 1</Text>
+            <IconCoin size={70} />
+            <Text sx={{ fontSize: theme.fontSizes.sm }}>{item.title}</Text>
           </Stack>
         </AspectRatio>
       ))}

@@ -1,10 +1,16 @@
-import { AspectRatio, Grid } from '@mantine/core';
+import {
+  AspectRatio,
+  Grid,
+  useMantineColorScheme,
+  useMantineTheme,
+} from '@mantine/core';
 import Image from 'next/image';
 
 const HeroGrid = () => {
+  const theme = useMantineTheme();
   return (
-    <Grid gutter="sm">
-      <Grid.Col span={4}>
+    <Grid gutter="md">
+      <Grid.Col span={12}>
         <AspectRatio ratio={1 / 1}>
           <Image
             src="https://placeimg.com/640/480/arch"
@@ -15,7 +21,7 @@ const HeroGrid = () => {
           />
         </AspectRatio>
       </Grid.Col>
-      <Grid.Col span={4}>
+      <Grid.Col span={12}>
         <AspectRatio ratio={1 / 1}>
           <Image
             src="https://placeimg.com/640/480/tech"
@@ -26,7 +32,7 @@ const HeroGrid = () => {
           />
         </AspectRatio>
       </Grid.Col>
-      <Grid.Col span={4}>
+      <Grid.Col span={12}>
         <AspectRatio ratio={1 / 1}>
           <Image
             src="https://placeimg.com/640/480/people"
@@ -37,8 +43,8 @@ const HeroGrid = () => {
           />
         </AspectRatio>
       </Grid.Col>
-      <Grid.Col span={8}>
-        <AspectRatio ratio={2 / 0.97}>
+      <Grid.Col span={12}>
+        <AspectRatio ratio={theme.fn.largerThan('xs') ? 1 / 1 : 2 / 0.97}>
           <Image
             src="https://placeimg.com/640/480/nature"
             alt="duapuluh tuhuhbelas"
@@ -48,7 +54,7 @@ const HeroGrid = () => {
           />
         </AspectRatio>
       </Grid.Col>
-      <Grid.Col span={4}>
+      <Grid.Col span={12}>
         <AspectRatio ratio={1 / 1}>
           <Image
             src="https://placeimg.com/640/480/animal"

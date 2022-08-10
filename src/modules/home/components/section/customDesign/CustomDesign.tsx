@@ -25,8 +25,8 @@ const CustomDesign = () => {
         py={theme.spacing.xl * 2}
         mx="sm"
       >
-        <Title order={2}>Custom Design</Title>
-        <Text>
+        <Title order={3}>Custom Design</Title>
+        <Text sx={{ fontSize: theme.fontSizes.xs }}>
           UB Merchandise & Creative menyediakan layanan jasa kreatif untuk
           memenuhi kebutuhan digitalisasi Anda
         </Text>

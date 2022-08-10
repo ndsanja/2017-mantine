@@ -27,10 +27,10 @@ const ServiceSection = () => {
         py={theme.spacing.xl * 2}
         mx="sm"
       >
-        <Title order={2}>Services</Title>
-        <Text>
+        <Title order={3}>Services</Title>
+        <Text sx={{ fontSize: theme.fontSizes.xs }}>
           UB Merchandise & Creative berkomitmen memberikan layanan terbaik
-          sesuai kebutuhan Anda. Jangan ragu, kami siap membantu!
+          sesuai kebutuhan Anda
         </Text>
         <Slider />
       </Stack>
