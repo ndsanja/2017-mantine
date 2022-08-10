@@ -3,9 +3,11 @@ import {
   Button,
   Group,
   Header,
+  MediaQuery,
   Title,
   useMantineTheme,
 } from '@mantine/core';
+import { IconMenu, IconMenu2 } from '@tabler/icons';
 import { ColorSchemeToggle } from '../../../../components/ColorSchemeToggle/ColorSchemeToggle';
 
 const HeaderComp = () => {
@@ -35,7 +37,7 @@ const HeaderComp = () => {
   return (
     <Header
       height={70}
-      px="xl"
+      px="sm"
       withBorder={false}
       sx={{
         position: 'sticky',
@@ -48,13 +50,26 @@ const HeaderComp = () => {
         maxWidth: theme.breakpoints.xl,
         background:
           theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-        [theme.fn.smallerThan('xs')]: {
-          display: 'none',
-        },
       }}
     >
-      <Title order={3}>20.17</Title>
-      <Group position="center" align="center" spacing="xl">
+      <Group align="center" spacing="sm">
+        <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
+          <IconMenu2 />
+        </MediaQuery>
+        <Title order={3}>20.17</Title>
+      </Group>
+
+      <Group
+        position="center"
+        align="center"
+        spacing="xl"
+        sx={{
+          display: 'none',
+          [theme.fn.largerThan('md')]: {
+            display: 'flex',
+          },
+        }}
+      >
         {data.map((menu) => (
           <Anchor
             key={menu.title}
@@ -69,7 +84,7 @@ const HeaderComp = () => {
           </Anchor>
         ))}
       </Group>
-      <Group position="center" spacing="xl">
+      <Group position="center" spacing="sm">
         <ColorSchemeToggle />
         <Button>Order</Button>
       </Group>
