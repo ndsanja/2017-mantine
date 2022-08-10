@@ -21,26 +21,31 @@ const HomeView = () => {
     <>
       <HeaderComp />
       <Container size="md">
-        <Space h={theme.spacing.xl * 3} />
+        <Space h={theme.spacing.xl * 2} />
         <Stack align="center" justify="center" spacing={0}>
           <Title order={1}>20.17</Title>
           <Text>Duapuluh Tujuhbelas</Text>
         </Stack>
-        <Space h={theme.spacing.xl * 3} />
+        <Space h={theme.spacing.xl * 2} />
         <MenuComp />
-        <Space h={theme.spacing.xl * 3} />
-        <Stack align="center" justify="center" spacing={0}>
+        <Space h={theme.spacing.xl * 2} />
+        <Stack
+          align="center"
+          justify="center"
+          spacing={0}
+          sx={{ textAlign: 'center' }}
+        >
           <Title
             order={1}
-            sx={{ fontSize: theme.fontSizes.xl * 4, fontWeight: 400 }}
+            sx={{ fontSize: theme.fontSizes.xl * 2, fontWeight: 400 }}
           >
             Official Website
           </Title>
           <Title
             order={1}
-            sx={{ fontSize: theme.fontSizes.xl * 4, fontWeight: 400 }}
+            sx={{ fontSize: theme.fontSizes.xl * 2, fontWeight: 400 }}
           >
-            Duapuluh TujuhBelas
+            20.17
           </Title>
         </Stack>
         <Space h={theme.spacing.xl * 3} />
@@ -50,7 +55,7 @@ const HomeView = () => {
         <Space h={theme.spacing.xl * 3} />
         <HeroGrid />
         <Space h={theme.spacing.xl * 3} />
-        <Title order={1} sx={{ fontWeight: 400, textAlign: 'center' }}>
+        <Title order={2} sx={{ fontWeight: 400, textAlign: 'center' }}>
           Product List
         </Title>
         <Space h={theme.spacing.xl * 2} />

@@ -58,7 +58,7 @@ const ProductList = () => {
   ];
   return (
     <>
-      <Group align="center" spacing="lg" mb="xl">
+      <Group align="center" spacing="sm" mb="xl">
         {menu.map((item) => (
           <Anchor
             key={item.title}
@@ -120,7 +120,7 @@ const ProductList = () => {
         ))}
       </SimpleGrid>
       <Center>
-        <Pagination mt={theme.spacing.xl * 2} total={5} radius="xl" />
+        <Pagination mt={theme.spacing.xl * 2} total={3} radius="xl" />
       </Center>
     </>
   );
