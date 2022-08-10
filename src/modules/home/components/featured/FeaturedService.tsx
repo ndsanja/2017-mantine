@@ -45,7 +45,7 @@ const FeaturedService = () => {
               color: theme.white,
             }}
           >
-            <IconCoin size={80} />
+            <IconCoin size={50} />
             <Text>Service 1</Text>
           </Stack>
         </AspectRatio>

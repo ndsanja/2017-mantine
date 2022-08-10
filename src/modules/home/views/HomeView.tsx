@@ -8,12 +8,16 @@ import {
   Title,
   useMantineTheme,
 } from '@mantine/core';
+import HomeBanner from '../components/banner/HomeBanner';
 import FeaturedService from '../components/featured/FeaturedService';
+import FooterComp from '../components/footer/FooterComp';
 import HeaderComp from '../components/header/HeaderComp';
 import Hero from '../components/hero/Hero';
 import HeroGrid from '../components/heroGrid/HeroGrid';
 import MenuComp from '../components/menu/MenuComp';
 import ProductList from '../components/productList/ProductList';
+import CustomDesign from '../components/section/customDesign/CustomDesign';
+import ServiceSection from '../components/section/services/ServiceSection';
 
 const HomeView = () => {
   const theme = useMantineTheme();
@@ -62,6 +66,13 @@ const HomeView = () => {
         <ProductList />
         <Space h={theme.spacing.xl * 3} />
       </Container>
+      <ServiceSection />
+      <Space h={theme.spacing.xl} />
+      <CustomDesign />
+      <Space h={theme.spacing.xl * 3} />
+      <HomeBanner />
+      <Space h={theme.spacing.xl * 3} />
+      <FooterComp />
     </>
   );
 };

@@ -44,15 +44,15 @@ const ProductList = () => {
 
   const menu = [
     {
-      title: 'Option One',
+      title: 'New Product',
       action: '#',
     },
     {
-      title: 'Option Two',
+      title: 'Best Seller',
       action: '#',
     },
     {
-      title: 'Option Three',
+      title: 'Sale',
       action: '#',
     },
   ];
@@ -75,7 +75,7 @@ const ProductList = () => {
       </Group>
       <SimpleGrid
         breakpoints={[
-          { maxWidth: 'xs', cols: 1, spacing: 'xl' },
+          { maxWidth: 'xs', cols: 2, spacing: 'sm' },
           { maxWidth: 'sm', cols: 2, spacing: 'xl' },
           { maxWidth: 'md', cols: 3, spacing: 'xl' },
           { minWidth: 'md', cols: 4, spacing: 'xl' },
@@ -93,11 +93,13 @@ const ProductList = () => {
               />
             </AspectRatio>
             <Card.Section mt="md" px="sm">
-              <Title order={5}>{prod.title}</Title>
-              <Text>Selengkapnya</Text>
+              <Title order={5} sx={{ fontWeight: 400 }}>
+                {prod.title}
+              </Title>
+              <Text sx={{ fontSize: theme.fontSizes.xs }}>Selengkapnya</Text>
             </Card.Section>
             <Card.Section mt="sm" px="sm">
-              <Group position="apart">
+              <Group position="apart" sx={{ fontSize: theme.fontSizes.xs }}>
                 <Text>Rp 80000</Text>
                 <Text
                   sx={{
@@ -110,7 +112,7 @@ const ProductList = () => {
               </Group>
             </Card.Section>
             <Card.Section mt="sm" px="sm">
-              <Group>
+              <Group sx={{ fontSize: theme.fontSizes.sm }}>
                 <Anchor sx={{ color: 'green' }}>Tokopedia</Anchor>
 
                 <Anchor sx={{ color: 'orangered' }}>Shopee</Anchor>
