@@ -1,7 +1,8 @@
-import { Anchor, Group, useMantineTheme } from '@mantine/core';
+import { Anchor, Group } from '@mantine/core';
+import { useMantine } from '../../../../cores/theme/mantine';
 
 const MenuComp = () => {
-  const theme = useMantineTheme();
+  const { mantine: m } = useMantine();
   const data = [
     {
       title: 'Product',
@@ -28,9 +29,9 @@ const MenuComp = () => {
     <Group
       position="center"
       align="center"
-      spacing="xl"
+      spacing={m.theme.spacing.xl}
       sx={{
-        [theme.fn.smallerThan('sm')]: {
+        [m.theme.fn.smallerThan('lg')]: {
           display: 'none',
         },
       }}
@@ -40,7 +41,9 @@ const MenuComp = () => {
           key={menu.title}
           sx={{
             color:
-              theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+              m.theme.colorScheme === 'dark'
+                ? m.theme.colors.dark[0]
+                : m.theme.black,
           }}
         >
           {menu.title}

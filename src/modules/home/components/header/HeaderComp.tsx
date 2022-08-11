@@ -5,16 +5,13 @@ import {
   Header,
   MediaQuery,
   Title,
-  useMantineTheme,
 } from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
-import { IconMenu, IconMenu2 } from '@tabler/icons';
+import { IconMenu2 } from '@tabler/icons';
 import { ColorSchemeToggle } from '../../../../components/ColorSchemeToggle/ColorSchemeToggle';
+import { useMantine } from '../../../../cores/theme/mantine';
 
 const HeaderComp = () => {
-  const largerThanXs = useMediaQuery('(min-width: 576px)', false);
-  const largerThanSm = useMediaQuery('(min-width: 768px)', false);
-  const theme = useMantineTheme();
+  const { mantine: m } = useMantine();
 
   const data = [
     {
@@ -40,24 +37,33 @@ const HeaderComp = () => {
   ];
   return (
     <Header
-      height={largerThanXs ? 100 : 70}
-      px={largerThanSm ? theme.spacing.xl * 4 : largerThanXs ? 'xl' : 'sm'}
+      height={m.display.SM ? 100 : 70}
+      px={
+        m.display.MD
+          ? m.theme.spacing.xl * 4
+          : m.display.SM
+          ? m.theme.spacing.xl
+          : m.theme.spacing.sm
+      }
       withBorder={false}
       sx={{
         position: 'sticky',
         top: 0,
+        left: 0,
+        right: 0,
         zIndex: 1000,
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         width: '100%',
-        maxWidth: theme.breakpoints.xl,
         background:
-          theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+          m.theme.colorScheme === 'dark'
+            ? m.theme.colors.dark[7]
+            : m.theme.white,
       }}
     >
-      <Group align="center" spacing="sm">
-        <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
+      <Group align="center" spacing={m.theme.spacing.sm}>
+        <MediaQuery largerThan="lg" styles={{ display: 'none' }}>
           <IconMenu2 />
         </MediaQuery>
         <Title order={3}>20.17</Title>
@@ -66,10 +72,10 @@ const HeaderComp = () => {
       <Group
         position="center"
         align="center"
-        spacing="xl"
+        spacing={m.theme.spacing.xl}
         sx={{
           display: 'none',
-          [theme.fn.largerThan('md')]: {
+          [m.theme.fn.largerThan('lg')]: {
             display: 'flex',
           },
         }}
@@ -79,22 +85,22 @@ const HeaderComp = () => {
             key={menu.title}
             sx={{
               color:
-                theme.colorScheme === 'dark'
-                  ? theme.colors.dark[0]
-                  : theme.black,
+                m.theme.colorScheme === 'dark'
+                  ? m.theme.colors.dark[0]
+                  : m.theme.black,
             }}
           >
             {menu.title}
           </Anchor>
         ))}
       </Group>
-      <Group position="center" spacing="sm">
+      <Group position="center" spacing={m.theme.spacing.sm}>
         <ColorSchemeToggle />
         <Button
           sx={{
             fontWeight: 600,
-            fontSize: theme.fontSizes.xs,
-            [theme.fn.largerThan('xs')]: { fontSize: theme.fontSizes.md },
+            fontSize: m.theme.fontSizes.xs,
+            [m.theme.fn.largerThan('sm')]: { fontSize: m.theme.fontSizes.md },
           }}
         >
           Form Order

@@ -1,18 +1,9 @@
-import {
-  AspectRatio,
-  SimpleGrid,
-  Stack,
-  Text,
-  useMantineTheme,
-} from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
+import { AspectRatio, SimpleGrid, Stack, Text } from '@mantine/core';
 import { IconCoin } from '@tabler/icons';
-import React from 'react';
+import { useMantine } from '../../../../cores/theme/mantine';
 
 const FeaturedService = () => {
-  const theme = useMantineTheme();
-  const largerThanXs = useMediaQuery('(min-width: 576px)', false);
-  const largerThanSm = useMediaQuery('(min-width: 768px)', false);
+  const { mantine: m } = useMantine();
 
   const data = [
     {
@@ -36,25 +27,25 @@ const FeaturedService = () => {
     <SimpleGrid
       p="lg"
       breakpoints={[
-        { maxWidth: 'sm', cols: 2 },
-        { minWidth: 'sm', cols: 4 },
+        { maxWidth: 'md', cols: 2 },
+        { minWidth: 'md', cols: 4 },
       ]}
-      sx={{ background: theme.fn.primaryColor() }}
+      sx={{ background: m.theme.fn.primaryColor() }}
     >
       {data.map((item) => (
         <AspectRatio
           key={item.title}
-          ratio={largerThanSm ? 1 / 1 : largerThanXs ? 2 / 1 : 1 / 1}
+          ratio={m.display.MD ? 1 / 1 : m.display.SM ? 2 / 1 : 1 / 1}
         >
           <Stack
             justify="center"
             align="center"
             sx={{
-              color: theme.white,
+              color: m.theme.white,
             }}
           >
             <IconCoin size={70} />
-            <Text sx={{ fontSize: theme.fontSizes.sm }}>{item.title}</Text>
+            <Text sx={{ fontSize: m.theme.fontSizes.sm }}>{item.title}</Text>
           </Stack>
         </AspectRatio>
       ))}

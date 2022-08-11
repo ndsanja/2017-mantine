@@ -1,12 +1,12 @@
 import { Carousel } from '@mantine/carousel';
-import { AspectRatio, Box, useMantineTheme } from '@mantine/core';
+import { AspectRatio, Box } from '@mantine/core';
 import Image from 'next/image';
 import { useRef } from 'react';
-import React from 'react';
 import Autoplay from 'embla-carousel-autoplay';
+import { useMantine } from '../../../../cores/theme/mantine';
 
 const Hero = () => {
-  const theme = useMantineTheme();
+  const { mantine: m } = useMantine();
   const autoplay = useRef(Autoplay({ delay: 5000 as any }));
 
   return (
@@ -19,7 +19,7 @@ const Hero = () => {
       loop
       plugins={[autoplay.current]}
     >
-      <Carousel.Slide sx={{ background: 'blue', position: 'relative' }}>
+      <Carousel.Slide sx={{ position: 'relative' }}>
         <AspectRatio ratio={16 / 9}>
           <Image
             src="https://placeimg.com/640/480/arch"
@@ -37,16 +37,16 @@ const Hero = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            background: theme.fn.linearGradient(
+            background: m.theme.fn.linearGradient(
               180,
-              theme.fn.rgba(theme.white, 0.0),
-              theme.fn.rgba(theme.black, 1)
+              m.theme.fn.rgba(m.theme.white, 0.0),
+              m.theme.fn.rgba(m.theme.black, 1)
             ),
             zIndex: 10,
           }}
         ></Box>
       </Carousel.Slide>
-      <Carousel.Slide sx={{ background: 'blue', position: 'relative' }}>
+      <Carousel.Slide sx={{ position: 'relative' }}>
         <AspectRatio ratio={16 / 9}>
           <Image
             src="https://placeimg.com/640/480/nature"
@@ -64,16 +64,16 @@ const Hero = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            background: theme.fn.linearGradient(
+            background: m.theme.fn.linearGradient(
               180,
-              theme.fn.rgba(theme.white, 0.0),
-              theme.fn.rgba(theme.black, 1)
+              m.theme.fn.rgba(m.theme.white, 0.0),
+              m.theme.fn.rgba(m.theme.black, 1)
             ),
             zIndex: 10,
           }}
         ></Box>
       </Carousel.Slide>
-      <Carousel.Slide sx={{ background: 'blue', position: 'relative' }}>
+      <Carousel.Slide sx={{ position: 'relative' }}>
         <AspectRatio ratio={16 / 9}>
           <Image
             src="https://placeimg.com/640/480/tech"
@@ -91,10 +91,10 @@ const Hero = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            background: theme.fn.linearGradient(
+            background: m.theme.fn.linearGradient(
               180,
-              theme.fn.rgba(theme.white, 0.0),
-              theme.fn.rgba(theme.black, 1)
+              m.theme.fn.rgba(m.theme.white, 0.0),
+              m.theme.fn.rgba(m.theme.black, 1)
             ),
             zIndex: 10,
           }}

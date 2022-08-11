@@ -1,28 +1,16 @@
-import {
-  AspectRatio,
-  Box,
-  Button,
-  Grid,
-  useMantineColorScheme,
-  useMantineTheme,
-} from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
+import { AspectRatio, Box, Button, Grid } from '@mantine/core';
 import Image from 'next/image';
+import { useMantine } from '../../../../cores/theme/mantine';
 
 const HeroGrid = () => {
-  const theme = useMantineTheme();
-  const largerThanSm = useMediaQuery('(min-width: 768px)', false);
+  const { mantine: m } = useMantine();
 
   return (
     <Grid
-      gutter={largerThanSm ? 'md' : 0}
-      sx={{
-        [theme.fn.smallerThan('sm')]: {
-          gap: theme.spacing.md,
-        },
-      }}
+      gutter={m.display.MD ? m.theme.spacing.md : 0}
+      sx={{ rowGap: m.display.MD ? 0 : m.theme.spacing.lg }}
     >
-      <Grid.Col span={largerThanSm ? 4 : 12} sx={{ position: 'relative' }}>
+      <Grid.Col span={m.display.MD ? 4 : 12} sx={{ position: 'relative' }}>
         <Box sx={{ position: 'relative' }}>
           <AspectRatio ratio={1 / 1}>
             <Image
@@ -36,8 +24,8 @@ const HeroGrid = () => {
           <Button
             sx={{
               position: 'absolute',
-              bottom: theme.spacing.md,
-              right: theme.spacing.md,
+              bottom: m.theme.spacing.md,
+              right: m.theme.spacing.md,
               zIndex: 20,
             }}
           >
@@ -50,21 +38,21 @@ const HeroGrid = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              background: theme.fn.linearGradient(
+              background: m.theme.fn.linearGradient(
                 180,
-                theme.fn.rgba(theme.white, 0.0),
-                theme.fn.rgba(theme.black, 1)
+                m.theme.fn.rgba(m.theme.white, 0.0),
+                m.theme.fn.rgba(m.theme.black, 1)
               ),
               zIndex: 10,
             }}
           ></Box>
         </Box>
       </Grid.Col>
-      <Grid.Col span={largerThanSm ? 4 : 12} sx={{ position: 'relative' }}>
+      <Grid.Col span={m.display.MD ? 4 : 12} sx={{ position: 'relative' }}>
         <Box sx={{ position: 'relative' }}>
           <AspectRatio ratio={1 / 1}>
             <Image
-              src="https://placeimg.com/640/480/arch"
+              src="https://placeimg.com/640/480/nature"
               alt="duapuluh tuhuhbelas"
               layout="fill"
               objectFit="cover"
@@ -74,8 +62,8 @@ const HeroGrid = () => {
           <Button
             sx={{
               position: 'absolute',
-              bottom: theme.spacing.md,
-              right: theme.spacing.md,
+              bottom: m.theme.spacing.md,
+              right: m.theme.spacing.md,
               zIndex: 20,
             }}
           >
@@ -88,21 +76,21 @@ const HeroGrid = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              background: theme.fn.linearGradient(
+              background: m.theme.fn.linearGradient(
                 180,
-                theme.fn.rgba(theme.white, 0.0),
-                theme.fn.rgba(theme.black, 1)
+                m.theme.fn.rgba(m.theme.white, 0.0),
+                m.theme.fn.rgba(m.theme.black, 1)
               ),
               zIndex: 10,
             }}
           ></Box>
         </Box>
       </Grid.Col>
-      <Grid.Col span={largerThanSm ? 4 : 12} sx={{ position: 'relative' }}>
+      <Grid.Col span={m.display.MD ? 4 : 12} sx={{ position: 'relative' }}>
         <Box sx={{ position: 'relative' }}>
           <AspectRatio ratio={1 / 1}>
             <Image
-              src="https://placeimg.com/640/480/arch"
+              src="https://placeimg.com/640/480/tech"
               alt="duapuluh tuhuhbelas"
               layout="fill"
               objectFit="cover"
@@ -112,8 +100,8 @@ const HeroGrid = () => {
           <Button
             sx={{
               position: 'absolute',
-              bottom: theme.spacing.md,
-              right: theme.spacing.md,
+              bottom: m.theme.spacing.md,
+              right: m.theme.spacing.md,
               zIndex: 20,
             }}
           >
@@ -126,21 +114,21 @@ const HeroGrid = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              background: theme.fn.linearGradient(
+              background: m.theme.fn.linearGradient(
                 180,
-                theme.fn.rgba(theme.white, 0.0),
-                theme.fn.rgba(theme.black, 1)
+                m.theme.fn.rgba(m.theme.white, 0.0),
+                m.theme.fn.rgba(m.theme.black, 1)
               ),
               zIndex: 10,
             }}
           ></Box>
         </Box>
       </Grid.Col>
-      <Grid.Col span={largerThanSm ? 8 : 12} sx={{ position: 'relative' }}>
+      <Grid.Col span={m.display.MD ? 8 : 12} sx={{ position: 'relative' }}>
         <Box sx={{ position: 'relative' }}>
-          <AspectRatio ratio={largerThanSm ? 2 / 0.96 : 1 / 1}>
+          <AspectRatio ratio={m.display.MD ? 2 / 0.96 : 1 / 1}>
             <Image
-              src="https://placeimg.com/640/480/arch"
+              src="https://placeimg.com/640/480/people"
               alt="duapuluh tuhuhbelas"
               layout="fill"
               objectFit="cover"
@@ -150,8 +138,8 @@ const HeroGrid = () => {
           <Button
             sx={{
               position: 'absolute',
-              bottom: theme.spacing.md,
-              right: theme.spacing.md,
+              bottom: m.theme.spacing.md,
+              right: m.theme.spacing.md,
               zIndex: 20,
             }}
           >
@@ -164,21 +152,21 @@ const HeroGrid = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              background: theme.fn.linearGradient(
+              background: m.theme.fn.linearGradient(
                 180,
-                theme.fn.rgba(theme.white, 0.0),
-                theme.fn.rgba(theme.black, 1)
+                m.theme.fn.rgba(m.theme.white, 0.0),
+                m.theme.fn.rgba(m.theme.black, 1)
               ),
               zIndex: 10,
             }}
           ></Box>
         </Box>
       </Grid.Col>
-      <Grid.Col span={largerThanSm ? 4 : 12} sx={{ position: 'relative' }}>
+      <Grid.Col span={m.display.MD ? 4 : 12} sx={{ position: 'relative' }}>
         <Box sx={{ position: 'relative' }}>
           <AspectRatio ratio={1 / 1}>
             <Image
-              src="https://placeimg.com/640/480/arch"
+              src="https://placeimg.com/640/480/animal"
               alt="duapuluh tuhuhbelas"
               layout="fill"
               objectFit="cover"
@@ -188,8 +176,8 @@ const HeroGrid = () => {
           <Button
             sx={{
               position: 'absolute',
-              bottom: theme.spacing.md,
-              right: theme.spacing.md,
+              bottom: m.theme.spacing.md,
+              right: m.theme.spacing.md,
               zIndex: 20,
             }}
           >
@@ -202,10 +190,10 @@ const HeroGrid = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              background: theme.fn.linearGradient(
+              background: m.theme.fn.linearGradient(
                 180,
-                theme.fn.rgba(theme.white, 0.0),
-                theme.fn.rgba(theme.black, 1)
+                m.theme.fn.rgba(m.theme.white, 0.0),
+                m.theme.fn.rgba(m.theme.black, 1)
               ),
               zIndex: 10,
             }}

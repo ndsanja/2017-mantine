@@ -1,44 +1,41 @@
-import {
-  Button,
-  Container,
-  Stack,
-  Text,
-  Title,
-  useMantineTheme,
-} from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
+import { Button, Container, Stack, Text, Title } from '@mantine/core';
+import { useMantine } from '../../../../cores/theme/mantine';
 const HomeBanner = () => {
-  const theme = useMantineTheme();
-  const largerThanXs = useMediaQuery('(min-width: 577px)', false);
-  const largerThanSm = useMediaQuery('(min-width: 768px)', false);
+  const { mantine: m } = useMantine();
 
   return (
     <Container
       fluid
       sx={{
-        background: theme.fn.primaryColor(),
+        background: m.theme.fn.primaryColor(),
         textAlign: 'center',
-        color: theme.white,
+        color: m.theme.white,
       }}
     >
       <Stack
         align="center"
         justify="center"
-        spacing={largerThanSm ? theme.spacing.xl * 2 : 'xl'}
+        spacing={m.display.MD ? m.theme.spacing.xl * 2 : m.theme.spacing.xl}
         py={
-          theme.fn.largerThan('xs')
-            ? theme.spacing.xl * 3.5
-            : theme.spacing.xl * 2
+          m.theme.fn.largerThan('xs')
+            ? m.theme.spacing.xl * 3.5
+            : m.theme.spacing.xl * 2
         }
-        mx={largerThanSm ? theme.spacing.xl * 4 : largerThanXs ? 'xl' : 'sm'}
+        mx={
+          m.display.MD
+            ? m.theme.spacing.xl * 4
+            : m.display.SM
+            ? m.theme.spacing.xl
+            : m.theme.spacing.sm
+        }
       >
-        <Title order={largerThanXs ? 1 : 3}>
+        <Title order={m.display.SM ? 1 : 3}>
           Pelayanan Terbaik dan Produk Berkualitas
         </Title>
         <Text
           sx={{
-            fontSize: theme.fontSizes.xs,
-            [theme.fn.largerThan('xs')]: { fontSize: theme.fontSizes.md },
+            fontSize: m.theme.fontSizes.xs,
+            [m.theme.fn.largerThan('sm')]: { fontSize: m.theme.fontSizes.md },
           }}
         >
           UB Merchandise & Creative berkomitmen memberikan layanan terbaik

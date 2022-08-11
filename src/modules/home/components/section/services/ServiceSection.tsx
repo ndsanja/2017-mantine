@@ -7,39 +7,36 @@ import {
   Stack,
   Text,
   Title,
-  useMantineTheme,
 } from '@mantine/core';
 import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
 import { useRef } from 'react';
-import { useMediaQuery } from '@mantine/hooks';
+import { useMantine } from '../../../../../cores/theme/mantine';
 
 const ServiceSection = () => {
-  const theme = useMantineTheme();
-  const largerThanXs = useMediaQuery('(min-width: 576px)', false);
-  const largerThanSm = useMediaQuery('(min-width: 768px)', false);
+  const { mantine: m } = useMantine();
 
   return (
     <Container
       fluid
       sx={{
-        background: theme.fn.primaryColor(),
+        background: m.theme.fn.primaryColor(),
         textAlign: 'center',
-        color: theme.white,
+        color: m.theme.white,
       }}
     >
       <Stack
         align="center"
         justify="center"
         spacing="xl"
-        py={largerThanSm ? theme.spacing.xl * 3 : theme.spacing.xl * 2}
-        mx={largerThanSm ? theme.spacing.xl * 4 : 'md'}
+        py={m.display.MD ? m.theme.spacing.xl * 3 : m.theme.spacing.xl * 2}
+        mx={m.display.MD ? m.theme.spacing.xl * 4 : m.theme.spacing.md}
       >
-        <Title order={largerThanSm ? 1 : largerThanXs ? 2 : 3}>Services</Title>
+        <Title order={m.display.MD ? 1 : m.display.SM ? 2 : 3}>Services</Title>
         <Text
           sx={{
-            fontSize: theme.fontSizes.xs,
-            [theme.fn.largerThan('xs')]: { fontSize: theme.fontSizes.md },
+            fontSize: m.theme.fontSizes.xs,
+            [m.theme.fn.largerThan('sm')]: { fontSize: m.theme.fontSizes.md },
           }}
         >
           UB Merchandise & Creative berkomitmen memberikan layanan terbaik
@@ -54,9 +51,8 @@ const ServiceSection = () => {
 export default ServiceSection;
 
 function Slider() {
-  const largerThanSm = useMediaQuery('(min-width: 768px)', false);
+  const { mantine: m } = useMantine();
 
-  const theme = useMantineTheme();
   const autoplay = useRef(Autoplay({ delay: 3000 as any }));
 
   return (
@@ -65,14 +61,14 @@ function Slider() {
       mx="auto"
       height="auto"
       align="start"
-      slideGap={largerThanSm ? 'md' : 0}
-      slideSize={largerThanSm ? '50%' : '100%'}
+      slideGap={m.display.MD ? m.theme.spacing.md : 0}
+      slideSize={m.display.MD ? '50%' : '100%'}
       loop
       plugins={[autoplay.current]}
       onMouseEnter={autoplay.current.stop}
       onMouseLeave={autoplay.current.reset}
     >
-      <Carousel.Slide sx={{ background: 'blue', position: 'relative' }}>
+      <Carousel.Slide sx={{ position: 'relative' }}>
         <AspectRatio ratio={1 / 1}>
           <Image
             src="https://placeimg.com/640/480/arch"
@@ -85,8 +81,8 @@ function Slider() {
         <Button
           sx={{
             position: 'absolute',
-            bottom: theme.spacing.md,
-            right: theme.spacing.md,
+            bottom: m.theme.spacing.md,
+            right: m.theme.spacing.md,
             zIndex: 20,
           }}
         >
@@ -99,16 +95,16 @@ function Slider() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: theme.fn.linearGradient(
+            background: m.theme.fn.linearGradient(
               180,
-              theme.fn.rgba(theme.white, 0.0),
-              theme.fn.rgba(theme.black, 1)
+              m.theme.fn.rgba(m.theme.white, 0.0),
+              m.theme.fn.rgba(m.theme.black, 1)
             ),
             zIndex: 10,
           }}
         ></Box>
       </Carousel.Slide>
-      <Carousel.Slide sx={{ background: 'blue', position: 'relative' }}>
+      <Carousel.Slide sx={{ position: 'relative' }}>
         <AspectRatio ratio={1 / 1}>
           <Image
             src="https://placeimg.com/640/480/nature"
@@ -121,8 +117,8 @@ function Slider() {
         <Button
           sx={{
             position: 'absolute',
-            bottom: theme.spacing.md,
-            right: theme.spacing.md,
+            bottom: m.theme.spacing.md,
+            right: m.theme.spacing.md,
             zIndex: 20,
           }}
         >
@@ -135,16 +131,16 @@ function Slider() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: theme.fn.linearGradient(
+            background: m.theme.fn.linearGradient(
               180,
-              theme.fn.rgba(theme.white, 0.0),
-              theme.fn.rgba(theme.black, 1)
+              m.theme.fn.rgba(m.theme.white, 0.0),
+              m.theme.fn.rgba(m.theme.black, 1)
             ),
             zIndex: 10,
           }}
         ></Box>
       </Carousel.Slide>
-      <Carousel.Slide sx={{ background: 'blue', position: 'relative' }}>
+      <Carousel.Slide sx={{ position: 'relative' }}>
         <AspectRatio ratio={1 / 1}>
           <Image
             src="https://placeimg.com/640/480/tech"
@@ -157,8 +153,8 @@ function Slider() {
         <Button
           sx={{
             position: 'absolute',
-            bottom: theme.spacing.md,
-            right: theme.spacing.md,
+            bottom: m.theme.spacing.md,
+            right: m.theme.spacing.md,
             zIndex: 20,
           }}
         >
@@ -171,10 +167,10 @@ function Slider() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: theme.fn.linearGradient(
+            background: m.theme.fn.linearGradient(
               180,
-              theme.fn.rgba(theme.white, 0.0),
-              theme.fn.rgba(theme.black, 1)
+              m.theme.fn.rgba(m.theme.white, 0.0),
+              m.theme.fn.rgba(m.theme.black, 1)
             ),
             zIndex: 10,
           }}

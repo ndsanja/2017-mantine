@@ -7,15 +7,14 @@ import {
   Group,
   Pagination,
   SimpleGrid,
-  Stack,
   Text,
   Title,
-  useMantineTheme,
 } from '@mantine/core';
 import Image from 'next/image';
+import { useMantine } from '../../../../cores/theme/mantine';
 
 const ProductList = () => {
-  const theme = useMantineTheme();
+  const { mantine: m } = useMantine();
   const data = [
     {
       title: 'Product 1',
@@ -59,21 +58,25 @@ const ProductList = () => {
   ];
   return (
     <>
-      <Group align="center" spacing="sm" mb="xl">
+      <Group
+        align="center"
+        spacing={m.theme.spacing.sm}
+        mb={m.theme.spacing.xl}
+      >
         {menu.map((item) => (
           <Text
             key={item.title}
             sx={{
-              fontSize: theme.fontSizes.xs,
+              fontSize: m.theme.fontSizes.xs,
               fontWeight: 600,
               textDecoration:
                 item.title === 'New Product' ? 'underline' : 'none',
               color:
-                theme.colorScheme === 'dark'
-                  ? theme.colors.dark[0]
-                  : theme.black,
-              [theme.fn.largerThan('xs')]: {
-                fontSize: theme.fontSizes.md,
+                m.theme.colorScheme === 'dark'
+                  ? m.theme.colors.dark[0]
+                  : m.theme.black,
+              [m.theme.fn.largerThan('sm')]: {
+                fontSize: m.theme.fontSizes.md,
               },
             }}
           >
@@ -83,14 +86,20 @@ const ProductList = () => {
       </Group>
       <SimpleGrid
         breakpoints={[
-          { maxWidth: 'xs', cols: 2, spacing: 'sm' },
-          { maxWidth: 'sm', cols: 2, spacing: 'xl' },
-          { maxWidth: 'md', cols: 3, spacing: 'xl' },
-          { minWidth: 'md', cols: 4, spacing: 'xl' },
+          { maxWidth: 'sm', cols: 2, spacing: 'sm' },
+          { maxWidth: 'md', cols: 2, spacing: 'xl' },
+          { maxWidth: 'lg', cols: 3, spacing: 'xl' },
+          { minWidth: 'lg', cols: 4, spacing: 'xl' },
         ]}
       >
         {data.map((prod) => (
-          <Card key={prod.title} p={0} shadow="md" pb="md" radius={0}>
+          <Card
+            key={prod.title}
+            p={0}
+            shadow="md"
+            pb={m.theme.spacing.md}
+            radius={0}
+          >
             <AspectRatio ratio={1 / 1}>
               <Image
                 src="https://placeimg.com/640/480/tech"
@@ -100,32 +109,36 @@ const ProductList = () => {
                 objectPosition="center"
               />
             </AspectRatio>
-            <Card.Section mt="md" px="sm">
+            <Card.Section mt={m.theme.spacing.md} px={m.theme.spacing.sm}>
               <Title
                 order={6}
                 sx={{
                   fontWeight: 600,
-                  fontSize: theme.fontSizes.xs,
-                  [theme.fn.largerThan('xs')]: { fontSize: theme.fontSizes.md },
+                  fontSize: m.theme.fontSizes.xs,
+                  [m.theme.fn.largerThan('sm')]: {
+                    fontSize: m.theme.fontSizes.md,
+                  },
                 }}
               >
                 {prod.title}
               </Title>
-              {/* <Text sx={{ fontSize: theme.fontSizes.xs }}>Selengkapnya</Text> */}
+              {/* <Text sx={{ fontSize: m.theme.fontSizes.xs }}>Selengkapnya</Text> */}
             </Card.Section>
-            <Card.Section mt="sm" px="sm">
+            <Card.Section mt={m.theme.spacing.sm} px={m.theme.spacing.sm}>
               <Box
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
-                  fontSize: theme.fontSizes.xs,
-                  [theme.fn.largerThan('xs')]: { fontSize: theme.fontSizes.sm },
+                  fontSize: m.theme.fontSizes.xs,
+                  [m.theme.fn.largerThan('sm')]: {
+                    fontSize: m.theme.fontSizes.sm,
+                  },
                 }}
               >
                 <Text>Rp 80000</Text>
                 <Text
                   sx={{
-                    color: theme.colors.gray[7],
+                    color: m.theme.colors.gray[7],
                     textDecoration: 'line-through',
                   }}
                 >
@@ -133,11 +146,13 @@ const ProductList = () => {
                 </Text>
               </Box>
             </Card.Section>
-            <Card.Section mt="sm" px="sm">
+            <Card.Section mt={m.theme.spacing.sm} px={m.theme.spacing.sm}>
               <Group
                 sx={{
-                  fontSize: theme.fontSizes.sm,
-                  [theme.fn.largerThan('xs')]: { fontSize: theme.fontSizes.md },
+                  fontSize: m.theme.fontSizes.sm,
+                  [m.theme.fn.largerThan('sm')]: {
+                    fontSize: m.theme.fontSizes.md,
+                  },
                 }}
               >
                 <Anchor sx={{ color: 'green' }}>Tokopedia</Anchor>
@@ -149,7 +164,7 @@ const ProductList = () => {
         ))}
       </SimpleGrid>
       <Center>
-        <Pagination mt={theme.spacing.xl * 2} total={3} radius="xl" />
+        <Pagination mt={m.theme.spacing.xl * 2} total={3} radius="xl" />
       </Center>
     </>
   );

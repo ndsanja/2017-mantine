@@ -10,6 +10,7 @@ import {
 } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import '../styles/globals.css';
+import { display } from '../cores/theme/mantine';
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
@@ -47,6 +48,14 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
             primaryColor: 'red',
             fontFamily: 'DM Sans, sans-serif',
             headings: { fontFamily: 'DM Sans, sans-serif' },
+            breakpoints: {
+              xs: display.xs,
+              sm: display.sm,
+              md: display.md,
+              lg: display.lg,
+              xl: display.xl,
+              xxl: display.xxl,
+            },
             components: {
               Button: {
                 defaultProps: {
