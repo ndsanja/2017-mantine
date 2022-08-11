@@ -83,7 +83,7 @@ const HomeView = () => {
         <HeroGrid />
         <Space h={theme.spacing.xl * 4} />
         <Title
-          order={largerThanXs ? 2 : 3}
+          order={largerThanSm ? 1 : largerThanXs ? 2 : 3}
           sx={{ fontWeight: 600, textAlign: 'center' }}
         >
           Product List

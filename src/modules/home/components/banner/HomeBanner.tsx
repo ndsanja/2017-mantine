@@ -10,6 +10,7 @@ import { useMediaQuery } from '@mantine/hooks';
 const HomeBanner = () => {
   const theme = useMantineTheme();
   const largerThanXs = useMediaQuery('(min-width: 577px)', false);
+  const largerThanSm = useMediaQuery('(min-width: 768px)', false);
 
   return (
     <Container
@@ -23,13 +24,13 @@ const HomeBanner = () => {
       <Stack
         align="center"
         justify="center"
-        spacing="xl"
+        spacing={largerThanSm ? theme.spacing.xl * 2 : 'xl'}
         py={
           theme.fn.largerThan('xs')
             ? theme.spacing.xl * 3.5
             : theme.spacing.xl * 2
         }
-        mx={largerThanXs ? 'xl' : 'sm'}
+        mx={largerThanSm ? theme.spacing.xl * 4 : largerThanXs ? 'xl' : 'sm'}
       >
         <Title order={largerThanXs ? 1 : 3}>
           Pelayanan Terbaik dan Produk Berkualitas

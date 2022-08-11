@@ -14,7 +14,7 @@ const Hero = () => {
       sx={{ width: '100%' }}
       mx="auto"
       height="auto"
-      align="center"
+      align="start"
       withControls={false}
       loop
       plugins={[autoplay.current]}

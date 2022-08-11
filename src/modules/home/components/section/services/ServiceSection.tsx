@@ -16,7 +16,8 @@ import { useMediaQuery } from '@mantine/hooks';
 
 const ServiceSection = () => {
   const theme = useMantineTheme();
-  const largerThanXs = useMediaQuery('(min-width: 577px)', false);
+  const largerThanXs = useMediaQuery('(min-width: 576px)', false);
+  const largerThanSm = useMediaQuery('(min-width: 768px)', false);
 
   return (
     <Container
@@ -31,10 +32,10 @@ const ServiceSection = () => {
         align="center"
         justify="center"
         spacing="xl"
-        py={theme.spacing.xl * 2}
-        mx="sm"
+        py={largerThanSm ? theme.spacing.xl * 3 : theme.spacing.xl * 2}
+        mx={largerThanSm ? theme.spacing.xl * 4 : 'md'}
       >
-        <Title order={largerThanXs ? 2 : 3}>Services</Title>
+        <Title order={largerThanSm ? 1 : largerThanXs ? 2 : 3}>Services</Title>
         <Text
           sx={{
             fontSize: theme.fontSizes.xs,
@@ -53,6 +54,8 @@ const ServiceSection = () => {
 export default ServiceSection;
 
 function Slider() {
+  const largerThanSm = useMediaQuery('(min-width: 768px)', false);
+
   const theme = useMantineTheme();
   const autoplay = useRef(Autoplay({ delay: 3000 as any }));
 
@@ -61,8 +64,9 @@ function Slider() {
       sx={{ width: '100%' }}
       mx="auto"
       height="auto"
-      align="center"
-      slideGap="md"
+      align="start"
+      slideGap={largerThanSm ? 'md' : 0}
+      slideSize={largerThanSm ? '50%' : '100%'}
       loop
       plugins={[autoplay.current]}
       onMouseEnter={autoplay.current.stop}
