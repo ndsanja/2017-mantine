@@ -72,6 +72,9 @@ const ProductList = () => {
                 theme.colorScheme === 'dark'
                   ? theme.colors.dark[0]
                   : theme.black,
+              [theme.fn.largerThan('xs')]: {
+                fontSize: theme.fontSizes.md,
+              },
             }}
           >
             {item.title}
@@ -100,7 +103,11 @@ const ProductList = () => {
             <Card.Section mt="md" px="sm">
               <Title
                 order={6}
-                sx={{ fontWeight: 600, fontSize: theme.fontSizes.xs }}
+                sx={{
+                  fontWeight: 600,
+                  fontSize: theme.fontSizes.xs,
+                  [theme.fn.largerThan('xs')]: { fontSize: theme.fontSizes.md },
+                }}
               >
                 {prod.title}
               </Title>
@@ -112,6 +119,7 @@ const ProductList = () => {
                   display: 'flex',
                   flexDirection: 'column',
                   fontSize: theme.fontSizes.xs,
+                  [theme.fn.largerThan('xs')]: { fontSize: theme.fontSizes.sm },
                 }}
               >
                 <Text>Rp 80000</Text>
@@ -126,7 +134,12 @@ const ProductList = () => {
               </Box>
             </Card.Section>
             <Card.Section mt="sm" px="sm">
-              <Group sx={{ fontSize: theme.fontSizes.sm }}>
+              <Group
+                sx={{
+                  fontSize: theme.fontSizes.sm,
+                  [theme.fn.largerThan('xs')]: { fontSize: theme.fontSizes.md },
+                }}
+              >
                 <Anchor sx={{ color: 'green' }}>Tokopedia</Anchor>
 
                 <Anchor sx={{ color: 'orangered' }}>Shopee</Anchor>

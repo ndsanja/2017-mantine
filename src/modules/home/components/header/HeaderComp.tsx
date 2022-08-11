@@ -7,10 +7,15 @@ import {
   Title,
   useMantineTheme,
 } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import { IconMenu, IconMenu2 } from '@tabler/icons';
 import { ColorSchemeToggle } from '../../../../components/ColorSchemeToggle/ColorSchemeToggle';
 
 const HeaderComp = () => {
+  const largerThanXs = useMediaQuery('(min-width: 576px)', false);
+  const largerThanSm = useMediaQuery('(min-width: 768px)', false);
+  const theme = useMantineTheme();
+
   const data = [
     {
       title: 'Product',
@@ -33,11 +38,10 @@ const HeaderComp = () => {
       link: '/about',
     },
   ];
-  const theme = useMantineTheme();
   return (
     <Header
-      height={70}
-      px="sm"
+      height={largerThanXs ? 100 : 70}
+      px={largerThanSm ? theme.spacing.xl * 4 : largerThanXs ? 'xl' : 'sm'}
       withBorder={false}
       sx={{
         position: 'sticky',
@@ -86,7 +90,13 @@ const HeaderComp = () => {
       </Group>
       <Group position="center" spacing="sm">
         <ColorSchemeToggle />
-        <Button sx={{ fontWeight: 600, fontSize: theme.fontSizes.xs }}>
+        <Button
+          sx={{
+            fontWeight: 600,
+            fontSize: theme.fontSizes.xs,
+            [theme.fn.largerThan('xs')]: { fontSize: theme.fontSizes.md },
+          }}
+        >
           Form Order
         </Button>
       </Group>

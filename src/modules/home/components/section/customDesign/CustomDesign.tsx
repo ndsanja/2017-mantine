@@ -12,9 +12,12 @@ import {
 import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
 import { useRef } from 'react';
+import { useMediaQuery } from '@mantine/hooks';
 
 const CustomDesign = () => {
   const theme = useMantineTheme();
+  const largerThanXs = useMediaQuery('(min-width: 577px)', false);
+
   return (
     <Container
       fluid
@@ -29,8 +32,13 @@ const CustomDesign = () => {
         py={theme.spacing.xl * 2}
         mx="sm"
       >
-        <Title order={3}>Custom Design</Title>
-        <Text sx={{ fontSize: theme.fontSizes.xs }}>
+        <Title order={largerThanXs ? 2 : 3}>Custom Design</Title>
+        <Text
+          sx={{
+            fontSize: theme.fontSizes.xs,
+            [theme.fn.largerThan('xs')]: { fontSize: theme.fontSizes.md },
+          }}
+        >
           UB Merchandise & Creative menyediakan layanan jasa kreatif untuk
           memenuhi kebutuhan digitalisasi Anda
         </Text>
@@ -51,7 +59,7 @@ function Slider() {
       sx={{ width: '100%' }}
       mx="auto"
       height="auto"
-      align="start"
+      align="center"
       slideGap="md"
       loop
       plugins={[autoplay.current]}

@@ -5,11 +5,15 @@ import {
   Text,
   useMantineTheme,
 } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import { IconCoin } from '@tabler/icons';
 import React from 'react';
 
 const FeaturedService = () => {
   const theme = useMantineTheme();
+  const largerThanXs = useMediaQuery('(min-width: 576px)', false);
+  const largerThanSm = useMediaQuery('(min-width: 768px)', false);
+
   const data = [
     {
       icon: 'icon',
@@ -38,7 +42,10 @@ const FeaturedService = () => {
       sx={{ background: theme.fn.primaryColor() }}
     >
       {data.map((item) => (
-        <AspectRatio key={item.title} ratio={1 / 1}>
+        <AspectRatio
+          key={item.title}
+          ratio={largerThanSm ? 1 / 1 : largerThanXs ? 2 / 1 : 1 / 1}
+        >
           <Stack
             justify="center"
             align="center"

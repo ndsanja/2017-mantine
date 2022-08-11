@@ -8,6 +8,7 @@ import {
   Title,
   useMantineTheme,
 } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import HomeBanner from '../components/banner/HomeBanner';
 import FeaturedService from '../components/featured/FeaturedService';
 import FooterComp from '../components/footer/FooterComp';
@@ -21,12 +22,22 @@ import ServiceSection from '../components/section/services/ServiceSection';
 
 const HomeView = () => {
   const theme = useMantineTheme();
+  const largerThanXs = useMediaQuery('(min-width: 576px)', false);
+  const largerThanSm = useMediaQuery('(min-width: 768px)', false);
+
   return (
     <>
       <HeaderComp />
-      <Container size="md" px="xl">
-        <Space h={theme.spacing.xl * 2} />
-        <Stack align="center" justify="center" spacing={0}>
+      <Container size="md" px={largerThanSm ? theme.spacing.xl * 4 : 'xl'}>
+        <Stack
+          mt={theme.spacing.xl * 2}
+          align="center"
+          justify="center"
+          spacing={0}
+          sx={{
+            display: 'none',
+          }}
+        >
           <Title order={1}>20.17</Title>
           <Text>Duapuluh Tujuhbelas</Text>
         </Stack>
@@ -41,13 +52,25 @@ const HomeView = () => {
         >
           <Title
             order={1}
-            sx={{ fontSize: theme.fontSizes.xl * 1.6, fontWeight: 600 }}
+            sx={{
+              fontSize: theme.fontSizes.xl * 1.6,
+              fontWeight: 600,
+              [theme.fn.largerThan('xs')]: {
+                fontSize: theme.fontSizes.xl * 2,
+              },
+            }}
           >
             Official Website
           </Title>
           <Title
             order={1}
-            sx={{ fontSize: theme.fontSizes.xl * 1.6, fontWeight: 600 }}
+            sx={{
+              fontSize: theme.fontSizes.xl * 1.6,
+              fontWeight: 600,
+              [theme.fn.largerThan('xs')]: {
+                fontSize: theme.fontSizes.xl * 2,
+              },
+            }}
           >
             20.17
           </Title>
@@ -59,7 +82,10 @@ const HomeView = () => {
         <Space h={theme.spacing.xl * 2.5} />
         <HeroGrid />
         <Space h={theme.spacing.xl * 4} />
-        <Title order={2} sx={{ fontWeight: 400, textAlign: 'center' }}>
+        <Title
+          order={largerThanXs ? 2 : 3}
+          sx={{ fontWeight: 600, textAlign: 'center' }}
+        >
           Product List
         </Title>
         <Space h={theme.spacing.xl * 2} />
