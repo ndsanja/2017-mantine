@@ -1,41 +1,39 @@
 import { Button, Container, Stack, Text, Title } from '@mantine/core';
 import { useMantine } from '../../../../cores/theme/mantine';
 const HomeBanner = () => {
-  const { mantine: m } = useMantine();
+  const { mantine } = useMantine();
+  const mtn = mantine.theme;
+  const screen = mantine.display;
 
   return (
     <Container
       fluid
       sx={{
-        background: m.theme.fn.primaryColor(),
+        background: mtn.fn.primaryColor(),
         textAlign: 'center',
-        color: m.theme.white,
+        color: mtn.white,
       }}
     >
       <Stack
         align="center"
         justify="center"
-        spacing={m.display.MD ? m.theme.spacing.xl * 2 : m.theme.spacing.xl}
-        py={
-          m.theme.fn.largerThan('xs')
-            ? m.theme.spacing.xl * 3.5
-            : m.theme.spacing.xl * 2
-        }
+        spacing={screen.MD ? mtn.spacing.xl * 2 : mtn.spacing.xl}
+        py={mtn.fn.largerThan('xs') ? mtn.spacing.xl * 3.5 : mtn.spacing.xl * 2}
         mx={
-          m.display.MD
-            ? m.theme.spacing.xl * 4
-            : m.display.SM
-            ? m.theme.spacing.xl
-            : m.theme.spacing.sm
+          screen.MD
+            ? mtn.spacing.xl * 4
+            : screen.SM
+            ? mtn.spacing.xl
+            : mtn.spacing.sm
         }
       >
-        <Title order={m.display.SM ? 1 : 3}>
+        <Title order={screen.SM ? 1 : 3}>
           Pelayanan Terbaik dan Produk Berkualitas
         </Title>
         <Text
           sx={{
-            fontSize: m.theme.fontSizes.xs,
-            [m.theme.fn.largerThan('sm')]: { fontSize: m.theme.fontSizes.md },
+            fontSize: mtn.fontSizes.xs,
+            [mtn.fn.largerThan('sm')]: { fontSize: mtn.fontSizes.md },
           }}
         >
           UB Merchandise & Creative berkomitmen memberikan layanan terbaik

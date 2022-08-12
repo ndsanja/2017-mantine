@@ -6,7 +6,9 @@ import Autoplay from 'embla-carousel-autoplay';
 import { useMantine } from '../../../../cores/theme/mantine';
 
 const Hero = () => {
-  const { mantine: m } = useMantine();
+  const { mantine } = useMantine();
+  const mtn = mantine.theme;
+  const screen = mantine.display;
   const autoplay = useRef(Autoplay({ delay: 5000 as any }));
 
   return (
@@ -37,10 +39,10 @@ const Hero = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            background: m.theme.fn.linearGradient(
+            background: mtn.fn.linearGradient(
               180,
-              m.theme.fn.rgba(m.theme.white, 0.0),
-              m.theme.fn.rgba(m.theme.black, 1)
+              mtn.fn.rgba(mtn.white, 0.0),
+              mtn.fn.rgba(mtn.black, 1)
             ),
             zIndex: 10,
           }}
@@ -64,10 +66,10 @@ const Hero = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            background: m.theme.fn.linearGradient(
+            background: mtn.fn.linearGradient(
               180,
-              m.theme.fn.rgba(m.theme.white, 0.0),
-              m.theme.fn.rgba(m.theme.black, 1)
+              mtn.fn.rgba(mtn.white, 0.0),
+              mtn.fn.rgba(mtn.black, 1)
             ),
             zIndex: 10,
           }}
@@ -91,10 +93,10 @@ const Hero = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            background: m.theme.fn.linearGradient(
+            background: mtn.fn.linearGradient(
               180,
-              m.theme.fn.rgba(m.theme.white, 0.0),
-              m.theme.fn.rgba(m.theme.black, 1)
+              mtn.fn.rgba(mtn.white, 0.0),
+              mtn.fn.rgba(mtn.black, 1)
             ),
             zIndex: 10,
           }}

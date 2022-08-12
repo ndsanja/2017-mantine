@@ -14,7 +14,9 @@ import { useRef } from 'react';
 import { useMantine } from '../../../../../cores/theme/mantine';
 
 const CustomDesign = () => {
-  const { mantine: m } = useMantine();
+  const { mantine } = useMantine();
+  const mtn = mantine.theme;
+  const screen = mantine.display;
 
   return (
     <Container
@@ -27,16 +29,14 @@ const CustomDesign = () => {
         align="center"
         justify="center"
         spacing="xl"
-        py={m.display.MD ? m.theme.spacing.xl * 3 : m.theme.spacing.xl * 2}
-        mx={m.display.MD ? m.theme.spacing.xl * 4 : m.theme.spacing.md}
+        py={screen.MD ? mtn.spacing.xl * 3 : mtn.spacing.xl * 2}
+        mx={screen.MD ? mtn.spacing.xl * 4 : mtn.spacing.md}
       >
-        <Title order={m.display.MD ? 1 : m.display.SM ? 2 : 3}>
-          Custom Design
-        </Title>
+        <Title order={screen.MD ? 1 : screen.SM ? 2 : 3}>Custom Design</Title>
         <Text
           sx={{
-            fontSize: m.theme.fontSizes.xs,
-            [m.theme.fn.largerThan('sm')]: { fontSize: m.theme.fontSizes.md },
+            fontSize: mtn.fontSizes.xs,
+            [mtn.fn.largerThan('sm')]: { fontSize: mtn.fontSizes.md },
           }}
         >
           UB Merchandise & Creative menyediakan layanan jasa kreatif untuk
@@ -51,7 +51,9 @@ const CustomDesign = () => {
 export default CustomDesign;
 
 function Slider() {
-  const { mantine: m } = useMantine();
+  const { mantine } = useMantine();
+  const mtn = mantine.theme;
+  const screen = mantine.display;
   const autoplay = useRef(Autoplay({ delay: 3000 as any }));
 
   return (
@@ -60,8 +62,8 @@ function Slider() {
       mx="auto"
       height="auto"
       align="start"
-      slideGap={m.display.MD ? m.theme.spacing.md : 0}
-      slideSize={m.display.MD ? '50%' : '100%'}
+      slideGap={screen.MD ? mtn.spacing.md : 0}
+      slideSize={screen.MD ? '50%' : '100%'}
       loop
       plugins={[autoplay.current]}
       onMouseEnter={autoplay.current.stop}
@@ -80,8 +82,8 @@ function Slider() {
         <Button
           sx={{
             position: 'absolute',
-            bottom: m.theme.spacing.md,
-            right: m.theme.spacing.md,
+            bottom: mtn.spacing.md,
+            right: mtn.spacing.md,
             zIndex: 20,
           }}
         >
@@ -94,10 +96,10 @@ function Slider() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: m.theme.fn.linearGradient(
+            background: mtn.fn.linearGradient(
               180,
-              m.theme.fn.rgba(m.theme.white, 0.0),
-              m.theme.fn.rgba(m.theme.black, 1)
+              mtn.fn.rgba(mtn.white, 0.0),
+              mtn.fn.rgba(mtn.black, 1)
             ),
             zIndex: 10,
           }}
@@ -116,8 +118,8 @@ function Slider() {
         <Button
           sx={{
             position: 'absolute',
-            bottom: m.theme.spacing.md,
-            right: m.theme.spacing.md,
+            bottom: mtn.spacing.md,
+            right: mtn.spacing.md,
             zIndex: 20,
           }}
         >
@@ -130,10 +132,10 @@ function Slider() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: m.theme.fn.linearGradient(
+            background: mtn.fn.linearGradient(
               180,
-              m.theme.fn.rgba(m.theme.white, 0.0),
-              m.theme.fn.rgba(m.theme.black, 1)
+              mtn.fn.rgba(mtn.white, 0.0),
+              mtn.fn.rgba(mtn.black, 1)
             ),
             zIndex: 10,
           }}
@@ -152,8 +154,8 @@ function Slider() {
         <Button
           sx={{
             position: 'absolute',
-            bottom: m.theme.spacing.md,
-            right: m.theme.spacing.md,
+            bottom: mtn.spacing.md,
+            right: mtn.spacing.md,
             zIndex: 20,
           }}
         >
@@ -166,10 +168,10 @@ function Slider() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: m.theme.fn.linearGradient(
+            background: mtn.fn.linearGradient(
               180,
-              m.theme.fn.rgba(m.theme.white, 0.0),
-              m.theme.fn.rgba(m.theme.black, 1)
+              mtn.fn.rgba(mtn.white, 0.0),
+              mtn.fn.rgba(mtn.black, 1)
             ),
             zIndex: 10,
           }}

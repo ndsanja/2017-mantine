@@ -11,7 +11,9 @@ import { ColorSchemeToggle } from '../../../../components/ColorSchemeToggle/Colo
 import { useMantine } from '../../../../cores/theme/mantine';
 
 const HeaderComp = () => {
-  const { mantine: m } = useMantine();
+  const { mantine } = useMantine();
+  const mtn = mantine.theme;
+  const screen = mantine.display;
 
   const data = [
     {
@@ -37,13 +39,13 @@ const HeaderComp = () => {
   ];
   return (
     <Header
-      height={m.display.SM ? 100 : 70}
+      height={screen.SM ? 100 : 70}
       px={
-        m.display.MD
-          ? m.theme.spacing.xl * 4
-          : m.display.SM
-          ? m.theme.spacing.xl
-          : m.theme.spacing.sm
+        screen.MD
+          ? mtn.spacing.xl * 4
+          : screen.SM
+          ? mtn.spacing.xl
+          : mtn.spacing.sm
       }
       withBorder={false}
       sx={{
@@ -56,13 +58,10 @@ const HeaderComp = () => {
         justifyContent: 'space-between',
         alignItems: 'center',
         width: '100%',
-        background:
-          m.theme.colorScheme === 'dark'
-            ? m.theme.colors.dark[7]
-            : m.theme.white,
+        background: mtn.colorScheme === 'dark' ? mtn.colors.dark[7] : mtn.white,
       }}
     >
-      <Group align="center" spacing={m.theme.spacing.sm}>
+      <Group align="center" spacing={mtn.spacing.sm}>
         <MediaQuery largerThan="lg" styles={{ display: 'none' }}>
           <IconMenu2 />
         </MediaQuery>
@@ -72,10 +71,10 @@ const HeaderComp = () => {
       <Group
         position="center"
         align="center"
-        spacing={m.theme.spacing.xl}
+        spacing={mtn.spacing.xl}
         sx={{
           display: 'none',
-          [m.theme.fn.largerThan('lg')]: {
+          [mtn.fn.largerThan('lg')]: {
             display: 'flex',
           },
         }}
@@ -85,22 +84,20 @@ const HeaderComp = () => {
             key={menu.title}
             sx={{
               color:
-                m.theme.colorScheme === 'dark'
-                  ? m.theme.colors.dark[0]
-                  : m.theme.black,
+                mtn.colorScheme === 'dark' ? mtn.colors.dark[0] : mtn.black,
             }}
           >
             {menu.title}
           </Anchor>
         ))}
       </Group>
-      <Group position="center" spacing={m.theme.spacing.sm}>
+      <Group position="center" spacing={mtn.spacing.sm}>
         <ColorSchemeToggle />
         <Button
           sx={{
             fontWeight: 600,
-            fontSize: m.theme.fontSizes.xs,
-            [m.theme.fn.largerThan('sm')]: { fontSize: m.theme.fontSizes.md },
+            fontSize: mtn.fontSizes.xs,
+            [mtn.fn.largerThan('sm')]: { fontSize: mtn.fontSizes.md },
           }}
         >
           Form Order

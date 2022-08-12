@@ -12,33 +12,32 @@ import CustomDesign from '../components/section/customDesign/CustomDesign';
 import ServiceSection from '../components/section/services/ServiceSection';
 
 const HomeView = () => {
-  const { mantine: m } = useMantine();
+  const { mantine } = useMantine();
+  const mtn = mantine.theme;
+  const screen = mantine.display;
 
   return (
     <>
       <HeaderComp />
-      <Container
-        size="md"
-        px={m.display.MD ? m.theme.spacing.xl * 4 : m.theme.spacing.xl}
-      >
+      <Container size="md" px={screen.MD ? mtn.spacing.xl * 4 : mtn.spacing.xl}>
         <Stack
-          mt={m.theme.spacing.xl * 2}
+          mt={mtn.spacing.xl * 2}
           align="center"
           justify="center"
           spacing={0}
           sx={{
-            display: 'none',
-            [m.theme.fn.largerThan('lg')]: {
-              display: 'flex',
+            screen: 'none',
+            [mtn.fn.largerThan('lg')]: {
+              screen: 'flex',
             },
           }}
         >
           <Title order={1}>20.17</Title>
           <Text>Duapuluh Tujuhbelas</Text>
         </Stack>
-        <Space h={m.theme.spacing.xl * 2} />
+        <Space h={mtn.spacing.xl * 2} />
         <MenuComp />
-        <Space h={m.theme.spacing.xl * 2} />
+        <Space h={mtn.spacing.xl * 2} />
         <Stack
           align="center"
           justify="center"
@@ -48,10 +47,10 @@ const HomeView = () => {
           <Title
             order={1}
             sx={{
-              fontSize: m.theme.fontSizes.xl * 1.6,
+              fontSize: mtn.fontSizes.xl * 1.6,
               fontWeight: 600,
-              [m.theme.fn.largerThan('sm')]: {
-                fontSize: m.theme.fontSizes.xl * 2,
+              [mtn.fn.largerThan('sm')]: {
+                fontSize: mtn.fontSizes.xl * 2,
               },
             }}
           >
@@ -60,39 +59,39 @@ const HomeView = () => {
           <Title
             order={1}
             sx={{
-              fontSize: m.theme.fontSizes.xl * 1.6,
+              fontSize: mtn.fontSizes.xl * 1.6,
               fontWeight: 600,
-              [m.theme.fn.largerThan('sm')]: {
-                fontSize: m.theme.fontSizes.xl * 2,
+              [mtn.fn.largerThan('sm')]: {
+                fontSize: mtn.fontSizes.xl * 2,
               },
             }}
           >
             20.17
           </Title>
         </Stack>
-        <Space h={m.theme.spacing.xl * 3} />
+        <Space h={mtn.spacing.xl * 3} />
         <Hero />
-        <Space h={m.theme.spacing.xl * 4} />
+        <Space h={mtn.spacing.xl * 4} />
         <FeaturedService />
-        <Space h={m.theme.spacing.xl * 2.5} />
+        <Space h={mtn.spacing.xl * 2.5} />
         <HeroGrid />
-        <Space h={m.theme.spacing.xl * 4} />
+        <Space h={mtn.spacing.xl * 4} />
         <Title
-          order={m.display.MD ? 1 : m.display.SM ? 2 : 3}
+          order={screen.MD ? 1 : screen.SM ? 2 : 3}
           sx={{ fontWeight: 600, textAlign: 'center' }}
         >
           Product List
         </Title>
-        <Space h={m.theme.spacing.xl * 2} />
+        <Space h={mtn.spacing.xl * 2} />
         <ProductList />
-        <Space h={m.theme.spacing.xl * 3} />
+        <Space h={mtn.spacing.xl * 3} />
       </Container>
       <ServiceSection />
-      <Space h={m.theme.spacing.xl} />
+      <Space h={mtn.spacing.xl} />
       <CustomDesign />
-      <Space h={m.theme.spacing.xl * 3} />
+      <Space h={mtn.spacing.xl * 3} />
       <HomeBanner />
-      <Space h={m.theme.spacing.xl * 1.5} />
+      <Space h={mtn.spacing.xl * 1.5} />
       <FooterComp />
     </>
   );

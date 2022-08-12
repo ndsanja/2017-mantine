@@ -3,7 +3,9 @@ import { IconCoin } from '@tabler/icons';
 import { useMantine } from '../../../../cores/theme/mantine';
 
 const FeaturedService = () => {
-  const { mantine: m } = useMantine();
+  const { mantine } = useMantine();
+  const mtn = mantine.theme;
+  const screen = mantine.display;
 
   const data = [
     {
@@ -30,22 +32,22 @@ const FeaturedService = () => {
         { maxWidth: 'md', cols: 2 },
         { minWidth: 'md', cols: 4 },
       ]}
-      sx={{ background: m.theme.fn.primaryColor() }}
+      sx={{ background: mtn.fn.primaryColor() }}
     >
       {data.map((item) => (
         <AspectRatio
           key={item.title}
-          ratio={m.display.MD ? 1 / 1 : m.display.SM ? 2 / 1 : 1 / 1}
+          ratio={screen.MD ? 1 / 1 : screen.SM ? 2 / 1 : 1 / 1}
         >
           <Stack
             justify="center"
             align="center"
             sx={{
-              color: m.theme.white,
+              color: mtn.white,
             }}
           >
             <IconCoin size={70} />
-            <Text sx={{ fontSize: m.theme.fontSizes.sm }}>{item.title}</Text>
+            <Text sx={{ fontSize: mtn.fontSizes.sm }}>{item.title}</Text>
           </Stack>
         </AspectRatio>
       ))}

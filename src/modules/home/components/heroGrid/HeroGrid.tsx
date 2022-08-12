@@ -3,14 +3,16 @@ import Image from 'next/image';
 import { useMantine } from '../../../../cores/theme/mantine';
 
 const HeroGrid = () => {
-  const { mantine: m } = useMantine();
+  const { mantine } = useMantine();
+  const mtn = mantine.theme;
+  const screen = mantine.display;
 
   return (
     <Grid
-      gutter={m.display.MD ? m.theme.spacing.md : 0}
-      sx={{ rowGap: m.display.MD ? 0 : m.theme.spacing.lg }}
+      gutter={screen.MD ? mtn.spacing.md : 0}
+      sx={{ rowGap: screen.MD ? 0 : mtn.spacing.lg }}
     >
-      <Grid.Col span={m.display.MD ? 4 : 12} sx={{ position: 'relative' }}>
+      <Grid.Col span={screen.MD ? 4 : 12} sx={{ position: 'relative' }}>
         <Box sx={{ position: 'relative' }}>
           <AspectRatio ratio={1 / 1}>
             <Image
@@ -24,8 +26,8 @@ const HeroGrid = () => {
           <Button
             sx={{
               position: 'absolute',
-              bottom: m.theme.spacing.md,
-              right: m.theme.spacing.md,
+              bottom: mtn.spacing.md,
+              right: mtn.spacing.md,
               zIndex: 20,
             }}
           >
@@ -38,17 +40,17 @@ const HeroGrid = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              background: m.theme.fn.linearGradient(
+              background: mtn.fn.linearGradient(
                 180,
-                m.theme.fn.rgba(m.theme.white, 0.0),
-                m.theme.fn.rgba(m.theme.black, 1)
+                mtn.fn.rgba(mtn.white, 0.0),
+                mtn.fn.rgba(mtn.black, 1)
               ),
               zIndex: 10,
             }}
           ></Box>
         </Box>
       </Grid.Col>
-      <Grid.Col span={m.display.MD ? 4 : 12} sx={{ position: 'relative' }}>
+      <Grid.Col span={screen.MD ? 4 : 12} sx={{ position: 'relative' }}>
         <Box sx={{ position: 'relative' }}>
           <AspectRatio ratio={1 / 1}>
             <Image
@@ -62,8 +64,8 @@ const HeroGrid = () => {
           <Button
             sx={{
               position: 'absolute',
-              bottom: m.theme.spacing.md,
-              right: m.theme.spacing.md,
+              bottom: mtn.spacing.md,
+              right: mtn.spacing.md,
               zIndex: 20,
             }}
           >
@@ -76,17 +78,17 @@ const HeroGrid = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              background: m.theme.fn.linearGradient(
+              background: mtn.fn.linearGradient(
                 180,
-                m.theme.fn.rgba(m.theme.white, 0.0),
-                m.theme.fn.rgba(m.theme.black, 1)
+                mtn.fn.rgba(mtn.white, 0.0),
+                mtn.fn.rgba(mtn.black, 1)
               ),
               zIndex: 10,
             }}
           ></Box>
         </Box>
       </Grid.Col>
-      <Grid.Col span={m.display.MD ? 4 : 12} sx={{ position: 'relative' }}>
+      <Grid.Col span={screen.MD ? 4 : 12} sx={{ position: 'relative' }}>
         <Box sx={{ position: 'relative' }}>
           <AspectRatio ratio={1 / 1}>
             <Image
@@ -100,8 +102,8 @@ const HeroGrid = () => {
           <Button
             sx={{
               position: 'absolute',
-              bottom: m.theme.spacing.md,
-              right: m.theme.spacing.md,
+              bottom: mtn.spacing.md,
+              right: mtn.spacing.md,
               zIndex: 20,
             }}
           >
@@ -114,19 +116,19 @@ const HeroGrid = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              background: m.theme.fn.linearGradient(
+              background: mtn.fn.linearGradient(
                 180,
-                m.theme.fn.rgba(m.theme.white, 0.0),
-                m.theme.fn.rgba(m.theme.black, 1)
+                mtn.fn.rgba(mtn.white, 0.0),
+                mtn.fn.rgba(mtn.black, 1)
               ),
               zIndex: 10,
             }}
           ></Box>
         </Box>
       </Grid.Col>
-      <Grid.Col span={m.display.MD ? 8 : 12} sx={{ position: 'relative' }}>
+      <Grid.Col span={screen.MD ? 8 : 12} sx={{ position: 'relative' }}>
         <Box sx={{ position: 'relative' }}>
-          <AspectRatio ratio={m.display.MD ? 2 / 0.96 : 1 / 1}>
+          <AspectRatio ratio={screen.MD ? 2 / 0.96 : 1 / 1}>
             <Image
               src="https://placeimg.com/640/480/people"
               alt="duapuluh tuhuhbelas"
@@ -138,8 +140,8 @@ const HeroGrid = () => {
           <Button
             sx={{
               position: 'absolute',
-              bottom: m.theme.spacing.md,
-              right: m.theme.spacing.md,
+              bottom: mtn.spacing.md,
+              right: mtn.spacing.md,
               zIndex: 20,
             }}
           >
@@ -152,17 +154,17 @@ const HeroGrid = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              background: m.theme.fn.linearGradient(
+              background: mtn.fn.linearGradient(
                 180,
-                m.theme.fn.rgba(m.theme.white, 0.0),
-                m.theme.fn.rgba(m.theme.black, 1)
+                mtn.fn.rgba(mtn.white, 0.0),
+                mtn.fn.rgba(mtn.black, 1)
               ),
               zIndex: 10,
             }}
           ></Box>
         </Box>
       </Grid.Col>
-      <Grid.Col span={m.display.MD ? 4 : 12} sx={{ position: 'relative' }}>
+      <Grid.Col span={screen.MD ? 4 : 12} sx={{ position: 'relative' }}>
         <Box sx={{ position: 'relative' }}>
           <AspectRatio ratio={1 / 1}>
             <Image
@@ -176,8 +178,8 @@ const HeroGrid = () => {
           <Button
             sx={{
               position: 'absolute',
-              bottom: m.theme.spacing.md,
-              right: m.theme.spacing.md,
+              bottom: mtn.spacing.md,
+              right: mtn.spacing.md,
               zIndex: 20,
             }}
           >
@@ -190,10 +192,10 @@ const HeroGrid = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              background: m.theme.fn.linearGradient(
+              background: mtn.fn.linearGradient(
                 180,
-                m.theme.fn.rgba(m.theme.white, 0.0),
-                m.theme.fn.rgba(m.theme.black, 1)
+                mtn.fn.rgba(mtn.white, 0.0),
+                mtn.fn.rgba(mtn.black, 1)
               ),
               zIndex: 10,
             }}
